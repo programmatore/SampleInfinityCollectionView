@@ -170,9 +170,11 @@
 				TargetAttributes = {
 					F8178AB71B0AFDF200350EC6 = {
 						CreatedOnToolsVersion = 6.3.1;
+						LastSwiftMigration = 0830;
 					};
 					F8178ACC1B0AFDF200350EC6 = {
 						CreatedOnToolsVersion = 6.3.1;
+						LastSwiftMigration = 0830;
 						TestTargetID = F8178AB71B0AFDF200350EC6;
 					};
 				};
@@ -356,6 +358,7 @@
 				INFOPLIST_FILE = SampleInfinityCollectionView/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
 		};
@@ -367,6 +370,7 @@
 				INFOPLIST_FILE = SampleInfinityCollectionView/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
 		};
@@ -385,6 +389,7 @@
 				INFOPLIST_FILE = SampleInfinityCollectionViewTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SampleInfinityCollectionView.app/SampleInfinityCollectionView";
 			};
 			name = Debug;
@@ -400,6 +405,7 @@
 				INFOPLIST_FILE = SampleInfinityCollectionViewTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SampleInfinityCollectionView.app/SampleInfinityCollectionView";
 			};
 			name = Release;
@@ -423,6 +429,7 @@
 				F8178AD91B0AFDF200350EC6 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		F8178ADA1B0AFDF200350EC6 /* Build configuration list for PBXNativeTarget "SampleInfinityCollectionViewTests" */ = {
 			isa = XCConfigurationList;
@@ -431,6 +438,7 @@
 				F8178ADC1B0AFDF200350EC6 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
