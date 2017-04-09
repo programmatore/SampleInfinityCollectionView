@@ -10,14 +10,16 @@ import UIKit
 
 class CollectionView: UICollectionView {
     
-    required init(coder aDecoder: NSCoder) {
+    
+    required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
     }
     
     override init(frame: CGRect, collectionViewLayout layout: UICollectionViewLayout) {
         super.init(frame: frame, collectionViewLayout: layout)
     }
-
+    
+    
     override func layoutSubviews() {
         super.layoutSubviews()
         
@@ -39,5 +41,5 @@ class CollectionView: UICollectionView {
             contentOffset = CGPoint(x: currentOffset.x, y: centerOffsetY)
         }
     }
-
+    
 }

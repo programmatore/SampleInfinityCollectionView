@@ -21,24 +21,24 @@ class MultipleLineLayout: UICollectionViewFlowLayout {
         self.space = space
         
         super.init()
-        scrollDirection = .Horizontal
+        scrollDirection = .horizontal
     }
-
+    
     required init(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     
-    override func collectionViewContentSize() -> CGSize {
+    override var collectionViewContentSize : CGSize {
         if let collectionView = collectionView {
-            let xSize = collectionView.numberOfItemsInSection(0) * (itemWidth + space)
-            let ySize = collectionView.numberOfSections() * (itemHeight + space)
+            let xSize = collectionView.numberOfItems(inSection: 0) * (itemWidth + space)
+            let ySize = collectionView.numberOfSections * (itemHeight + space)
             return CGSize(width: xSize, height: ySize)
         }
-        return CGSizeZero
+        return CGSize.zero
     }
     
-    override func layoutAttributesForItemAtIndexPath(indexPath: NSIndexPath) -> UICollectionViewLayoutAttributes! {
-        let attributes = UICollectionViewLayoutAttributes(forCellWithIndexPath: indexPath)
+    override func layoutAttributesForItem(at indexPath: IndexPath) -> UICollectionViewLayoutAttributes? {
+        let attributes = UICollectionViewLayoutAttributes(forCellWith: indexPath)
         attributes.size = CGSize(width: itemWidth, height: itemHeight)
         let xValue = itemWidth / 2 + indexPath.row * (itemWidth + space)
         let yValue = itemHeight + indexPath.section * (itemHeight + space)
@@ -46,20 +46,20 @@ class MultipleLineLayout: UICollectionViewFlowLayout {
         return attributes
     }
     
-    override func layoutAttributesForElementsInRect(rect: CGRect) -> [AnyObject]? {
+    override func layoutAttributesForElements(in rect: CGRect) -> [UICollectionViewLayoutAttributes]? {
         var attributes: [UICollectionViewLayoutAttributes] = []
         let minRow: Int = (rect.origin.x > 0.0) ? (Int(rect.origin.x) / Int(itemWidth + space)) : 0
         let maxRow: Int = Int(rect.size.width) / (itemWidth + space) + minRow
-        let sectionNum: Int = collectionView?.numberOfSections() ?? 0
+        let sectionNum: Int = collectionView?.numberOfSections ?? 0
         for i in 0...(sectionNum - 1) {
             for j in minRow...maxRow {
-                let indexPath = NSIndexPath(forItem: j, inSection: i)
-                let attribute = layoutAttributesForItemAtIndexPath(indexPath)
-                attributes.append(attribute)
+                let indexPath = IndexPath(item: j, section: i)
+                let attribute = layoutAttributesForItem(at: indexPath)
+                attributes.append(attribute!)
             }
         }
         
         return attributes
     }
-   
+    
 }

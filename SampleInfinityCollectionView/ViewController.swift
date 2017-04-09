@@ -10,7 +10,7 @@ import UIKit
 
 class ViewController: UIViewController {
     
-    private let cellData: [[String]] = [
+    fileprivate let cellData: [[String]] = [
         ["1", "2", "3", "4", "5", "6"],
         ["7", "8", "9", "10", "11", "12"],
         ["13", "14", "15", "16", "17", "18"],
@@ -28,19 +28,19 @@ class ViewController: UIViewController {
         // Do any additional setup after loading the view, typically from a nib.
         setupCollectionView()
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-
+    
 }
 
 // MARK : - setup
 
 extension ViewController {
     
-    private func setupCollectionView() {
+    fileprivate func setupCollectionView() {
         let multpleLayout = MultipleLineLayout(itemHeight: itemHeight, itemWidth: itemWidth, space: space)
         collectionView.collectionViewLayout = multpleLayout
         collectionView.showsHorizontalScrollIndicator = false
@@ -55,25 +55,26 @@ extension ViewController {
 // MARK : - delegate
 
 extension ViewController: UICollectionViewDelegate {
-
-    func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
-        println("indexPath.section = \(indexPath.section % 4) / indexPath.row = \(indexPath.row % 6)")
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        print("indexPath.section = \(indexPath.section % 4) / indexPath.row = \(indexPath.row % 6)")
+        //        println("indexPath.section = \(indexPath.section % 4) / indexPath.row = \(indexPath.row % 6)")
     }
-
+    
 }
 
 extension ViewController: UICollectionViewDataSource {
     
-    func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return 30
     }
     
-    func numberOfSectionsInCollectionView(collectionView: UICollectionView) -> Int {
+    func numberOfSections(in collectionView: UICollectionView) -> Int {
         return 20
     }
     
-    func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCellWithReuseIdentifier("Cell", forIndexPath: indexPath) as! CollectionViewCell
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "Cell", for: indexPath) as! CollectionViewCell
         cell.label.text = cellData[indexPath.section % 4][indexPath.row % 6]
         return cell
     }
